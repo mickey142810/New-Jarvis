@@ -4,6 +4,7 @@ function handleJarvisCommand() {
 
   if (input.includes("play music")) {
     document.getElementById("musicBox").style.display = "block";
+    playMusic();
     output.textContent = "🎵 Opening music player.";
   } else if (input.includes("stop music") || input.includes("hide music")) {
     document.getElementById("musicBox").style.display = "none";
@@ -19,7 +20,7 @@ function handleJarvisCommand() {
 
   else if (input.includes("homework")) {
     document.getElementById("homeworkBox").style.display = "block";
-    askHomework(input.replace("homework", ""));
+    askHomework(input.replace("homework", "").trim());
     output.textContent = "📚 Working on your homework...";
   }
 
@@ -32,6 +33,7 @@ function handleJarvisCommand() {
     ["musicBox", "fortniteBox", "homeworkBox", "todoBox"].forEach(id => {
       document.getElementById(id).style.display = "none";
     });
+    stopMusic();
     output.textContent = "All modules hidden.";
   }
 
@@ -40,7 +42,7 @@ function handleJarvisCommand() {
   }
 }
 
-// Music
+// Music Controls
 function playMusic() {
   document.getElementById("bgMusic").play();
 }
@@ -61,13 +63,13 @@ function getFortniteTips() {
     tips[Math.floor(Math.random() * tips.length)];
 }
 
-// Homework
+// Homework Help using OpenAI API
 async function askHomework(question) {
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer YOUR_API_KEY"
+      "Authorization": "Bearer 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"
     },
     body: JSON.stringify({
       model: "gpt-4",
@@ -79,7 +81,7 @@ async function askHomework(question) {
     data.choices[0].message.content;
 }
 
-// To-do
+// To-Do
 function addTask() {
   const input = document.getElementById('todoInput');
   const task = input.value;
