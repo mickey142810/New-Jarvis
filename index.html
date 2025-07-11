@@ -2,39 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Iron Jarvis AI</title>
+  <title>Jarvis Command Interface</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🦾 Iron Jarvis Assistant</h1>
+  <h1>🦾 Jarvis AI Command Center</h1>
 
   <div class="box">
-    <h2>💬 AI Chat</h2>
-    <input id="chatInput" placeholder="Ask anything...">
-    <button onclick="askAI()">Send</button>
+    <h2>💬 Command Jarvis</h2>
+    <input id="chatInput" placeholder="Ask something..." size="40">
+    <button onclick="handleJarvisCommand()">Send</button>
     <p id="chatOutput"></p>
   </div>
 
-  <div class="box">
+  <!-- Music -->
+  <div class="box" id="musicBox" style="display: none;">
     <h2>🎵 Music Player</h2>
     <button onclick="playMusic()">Play</button>
     <button onclick="stopMusic()">Stop</button>
   </div>
 
-  <div class="box">
-    <h2>🎮 Fortnite Coaching</h2>
-    <button onclick="getFortniteTips()">Get Tips</button>
+  <!-- Fortnite -->
+  <div class="box" id="fortniteBox" style="display: none;">
+    <h2>🎮 Fortnite Tips</h2>
     <p id="fortniteTips"></p>
   </div>
 
-  <div class="box">
+  <!-- Homework -->
+  <div class="box" id="homeworkBox" style="display: none;">
     <h2>📚 Homework Help</h2>
-    <input id="homeworkInput" placeholder="Ask a question...">
-    <button onclick="askHomework()">Help Me</button>
     <p id="homeworkOutput"></p>
   </div>
 
-  <div class="box">
+  <!-- To-Do -->
+  <div class="box" id="todoBox" style="display: none;">
     <h2>✅ To-Do List</h2>
     <input id="todoInput" placeholder="New task...">
     <button onclick="addTask()">Add</button>
